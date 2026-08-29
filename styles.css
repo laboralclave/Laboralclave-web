@@ -196,106 +196,129 @@ textarea{resize:vertical}
 .legal-panel{margin-top:14px}
 
 
-/* ===== Versión 5: portada con oficina profesional de fondo ===== */
-.hero.hero-office{
+/* ===== Versión 6: portada limpia con despacho difuminado ===== */
+.hero.hero-v6{
   position:relative;
-  min-height:720px;
-  padding:96px 0 84px;
+  min-height:690px;
+  padding:92px 0 82px;
   background:
-    linear-gradient(90deg,rgba(5,24,38,.78) 0%,rgba(5,24,38,.60) 48%,rgba(5,24,38,.38) 100%),
-    url("office-background.png") center center / cover no-repeat;
+    linear-gradient(90deg,rgba(255,252,246,.20),rgba(255,252,246,.10)),
+    url("office-background.jpg") center center / cover no-repeat;
 }
-.hero.hero-office::before{
-  display:none;
+.hero.hero-v6::before{display:none}
+.hero.hero-v6 .hero-grid{
+  grid-template-columns:1.14fr .86fr;
+  gap:34px;
+  align-items:stretch;
 }
-.hero.hero-office .hero-grid{
-  align-items:center;
+
+/* Recuadro principal semitransparente: deja ver el despacho */
+.hero.hero-v6 .hero-copy{
+  background:rgba(255,252,246,.84);
+  border:1px solid rgba(255,255,255,.70);
+  border-radius:24px;
+  padding:48px 46px;
+  box-shadow:0 24px 65px rgba(17,36,48,.16);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
 }
-.hero.hero-office .hero-copy{
-  background:rgba(7,27,42,.38);
-  border:1px solid rgba(255,255,255,.18);
-  box-shadow:0 24px 60px rgba(0,0,0,.18);
-  backdrop-filter:blur(2px);
-  -webkit-backdrop-filter:blur(2px);
-  color:#fff;
+.hero.hero-v6 .hero-copy h1{color:var(--ink)}
+.hero.hero-v6 .hero-copy .hero-lead{color:#4d5d65}
+.hero.hero-v6 .hero-copy .trust-line{color:#53636b}
+
+/* Bloque derecho: foto + datos, sin iconografía decorativa */
+.hero.hero-v6 .hero-side{
+  display:grid;
+  grid-template-columns:minmax(210px,.92fr) minmax(220px,1.08fr);
+  gap:14px;
+  align-items:stretch;
+  background:rgba(255,252,246,.82);
+  border:1px solid rgba(255,255,255,.70);
+  border-radius:24px;
+  padding:20px;
+  box-shadow:0 24px 65px rgba(17,36,48,.16);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
 }
-.hero.hero-office .hero-copy h1{
-  color:#fff;
-  text-shadow:0 3px 20px rgba(0,0,0,.22);
+.hero.hero-v6 .portrait-card{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
-.hero.hero-office .hero-copy h1 span{
-  color:#e2b35a;
+.hero.hero-v6 .portrait-frame{
+  border-radius:16px;
+  overflow:hidden;
+  background:transparent;
+  box-shadow:none;
+  border:0;
 }
-.hero.hero-office .hero-copy .eyebrow{
-  color:#f0c66f;
-}
-.hero.hero-office .hero-lead{
-  color:rgba(255,255,255,.92);
-}
-.hero.hero-office .trust-line{
-  color:rgba(255,255,255,.86);
-}
-.hero.hero-office .trust-line b{
-  color:#efc46d;
-}
-.hero.hero-office .btn{
-  background:#c6922f;
-  border-color:#c6922f;
-  color:#fff;
-}
-.hero.hero-office .btn-secondary{
-  background:rgba(255,255,255,.10);
-  border-color:rgba(255,255,255,.72);
-  color:#fff;
-}
-.hero.hero-office .portrait-card{
+.hero.hero-v6 .portrait-frame img{
+  width:100%;
+  height:auto;
+  max-height:420px;
+  object-fit:contain;
+  object-position:center;
   background:transparent;
 }
-.hero.hero-office .portrait-frame{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.22);
-  box-shadow:0 24px 55px rgba(0,0,0,.23);
-  backdrop-filter:blur(2px);
-  -webkit-backdrop-filter:blur(2px);
-}
-.hero.hero-office .portrait-frame img{
+.hero.hero-v6 .portrait-caption{
+  position:static;
+  margin-top:10px;
   background:transparent;
+  box-shadow:none;
+  padding:0;
 }
-.hero.hero-office .portrait-caption{
-  background:rgba(7,27,42,.66);
-  color:#fff;
-  border:1px solid rgba(255,255,255,.16);
-  backdrop-filter:blur(4px);
-  -webkit-backdrop-filter:blur(4px);
+.hero.hero-v6 .portrait-caption strong{font-size:15px}
+.hero.hero-v6 .portrait-caption span{font-size:11px;color:var(--muted)}
+
+.hero.hero-v6 .hero-contact-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:0;
+  background:transparent;
+  color:var(--ink);
+  border-radius:0;
+  box-shadow:none;
 }
-.hero.hero-office .portrait-caption span{
-  color:rgba(255,255,255,.75);
+.hero.hero-v6 .hero-contact-card>div{
+  padding:18px 4px;
+  border-right:0;
+  border-bottom:1px solid rgba(12,36,56,.14);
 }
-.hero.hero-office .hero-contact-card{
-  background:rgba(7,27,42,.58);
-  border:1px solid rgba(255,255,255,.18);
-  box-shadow:0 22px 50px rgba(0,0,0,.20);
-  backdrop-filter:blur(4px);
-  -webkit-backdrop-filter:blur(4px);
+.hero.hero-v6 .hero-contact-card>div:last-child{border-bottom:0}
+.hero.hero-v6 .hero-contact-card strong{
+  color:var(--accent);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:6px;
 }
-.hero.hero-office .hero-contact-card strong{
-  color:#efc46d;
+.hero.hero-v6 .hero-contact-card a,
+.hero.hero-v6 .hero-contact-card span{
+  color:var(--ink);
+  font-size:13px;
+  line-height:1.45;
+  text-decoration:none;
 }
-@media (max-width:900px){
-  .hero.hero-office{
-    min-height:auto;
-    padding-top:68px;
-    background-position:58% center;
+
+/* Mantener el fondo visible y limpio, sin elementos flotantes */
+.hero.hero-v6 .hero-copy,
+.hero.hero-v6 .hero-side{
+  background-color:rgba(255,252,246,.82);
+}
+
+@media(max-width:980px){
+  .hero.hero-v6 .hero-grid{grid-template-columns:1fr}
+  .hero.hero-v6 .hero-side{grid-template-columns:240px 1fr}
+}
+@media(max-width:620px){
+  .hero.hero-v6{
+    padding:62px 0 64px;
+    background-position:center center;
   }
-  .hero.hero-office .hero-copy{
-    background:rgba(7,27,42,.56);
-  }
-}
-@media (max-width:620px){
-  .hero.hero-office{
-    background-position:62% center;
-  }
-  .hero.hero-office .hero-copy{
-    background:rgba(7,27,42,.62);
-  }
+  .hero.hero-v6 .hero-copy{padding:28px 22px}
+  .hero.hero-v6 .hero-side{grid-template-columns:1fr;padding:18px}
+  .hero.hero-v6 .portrait-card{max-width:250px;margin:0 auto}
+  .hero.hero-v6 .hero-contact-card>div{text-align:center}
 }
