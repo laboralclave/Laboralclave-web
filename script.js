@@ -19,18 +19,27 @@ document.querySelectorAll('.main-nav a').forEach(link => {
 const tabs = document.querySelectorAll('.legal-tab');
 const panels = document.querySelectorAll('.legal-panel');
 
-function openLegalPanel(id) {
-  tabs.forEach(t => t.classList.toggle('active', t.dataset.target === id));
-  panels.forEach(p => p.classList.toggle('active', p.id === id));
+function openLegalPanel(id, allowClose = true) {
+  const targetPanel = document.getElementById(id);
+  const isOpen = targetPanel && targetPanel.classList.contains('active');
+
+  tabs.forEach(t => t.classList.remove('active'));
+  panels.forEach(p => p.classList.remove('active'));
+
+  if (!(allowClose && isOpen)) {
+    const targetTab = [...tabs].find(t => t.dataset.target === id);
+    if (targetTab) targetTab.classList.add('active');
+    if (targetPanel) targetPanel.classList.add('active');
+  }
 }
 
 tabs.forEach(tab => {
-  tab.addEventListener('click', () => openLegalPanel(tab.dataset.target));
+  tab.addEventListener('click', () => openLegalPanel(tab.dataset.target, true));
 });
 
 document.querySelectorAll('[data-open-legal]').forEach(link => {
   link.addEventListener('click', () => {
-    openLegalPanel(link.dataset.openLegal);
+    openLegalPanel(link.dataset.openLegal, false);
     setTimeout(() => document.getElementById('cumplimiento').scrollIntoView({behavior:'smooth'}), 20);
   });
 });

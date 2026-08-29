@@ -190,3 +190,7 @@ textarea{resize:vertical}
   .legal-line{flex-direction:column}
   .cookie-banner{flex-direction:column;align-items:flex-start}
 }
+
+.legal-section{border-top:1px solid var(--line)}
+.legal-panels{margin-top:0}
+.legal-panel{margin-top:14px}

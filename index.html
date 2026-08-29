@@ -78,7 +78,7 @@
             </div>
             <div>
               <strong>Teléfono</strong>
-              <a href="tel:+34933830376">933 830 376</a>
+              <a href="tel:+34647229094">647 22 90 94</a>
             </div>
           </aside>
         </div>
@@ -201,23 +201,76 @@
       </div>
     </section>
 
+
+    <section id="contacto" class="section contact-section">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="eyebrow">Solicita una consulta</p>
+          <h2>Cuéntame brevemente qué necesitas</h2>
+          <p class="section-text">
+            Puedes contactar por correo electrónico o dejar preparada tu solicitud desde este formulario.
+          </p>
+          <div class="contact-details">
+            <a href="mailto:info@laboralclave.com"><strong>info@laboralclave.com</strong></a>
+            <span>Avenida Martí Pujol 14, 08911 Badalona</span>
+            <a href="tel:+34647229094">647 22 90 94</a>
+          </div>
+        </div>
+
+        <form id="consultation-form" class="contact-form">
+          <label>
+            Nombre *
+            <input type="text" name="nombre" autocomplete="name" required>
+          </label>
+          <label>
+            Email *
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>
+            Tema de la consulta *
+            <select name="tema" required>
+              <option value="">Selecciona una opción</option>
+              <option>Pensiones y jubilación</option>
+              <option>Incapacidades y Seguridad Social</option>
+              <option>Despidos y reclamaciones</option>
+              <option>Conciliación / mediación</option>
+              <option>Empresa / Inspección de Trabajo</option>
+              <option>Autónomos</option>
+              <option>Servicio doméstico</option>
+              <option>Otro</option>
+            </select>
+          </label>
+          <label>
+            Explícame brevemente tu caso *
+            <textarea name="mensaje" rows="5" required></textarea>
+          </label>
+          <label class="privacy-check">
+            <input type="checkbox" required>
+            <span>He leído y acepto la <a href="#cumplimiento" data-open-legal="privacidad">Política de privacidad</a> y consiento el tratamiento de mis datos para atender esta solicitud.</span>
+          </label>
+          <button class="btn" type="submit">Preparar solicitud</button>
+          <p id="form-message" class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
     <section id="cumplimiento" class="section legal-section">
       <div class="wrap">
         <div class="section-heading">
           <p class="eyebrow">Cumplimiento normativo y transparencia</p>
           <h2>Información legal de LaboralClave</h2>
-          <p>Haz clic en cualquiera de los cuatro apartados para consultar su contenido completo.</p>
+          <p>El contenido permanece oculto hasta que selecciones uno de los cuatro apartados.</p>
         </div>
 
         <div class="legal-tabs" role="tablist" aria-label="Información legal">
-          <button class="legal-tab active" data-target="aviso-legal">Aviso legal</button>
+          <button class="legal-tab" data-target="aviso-legal">Aviso legal</button>
           <button class="legal-tab" data-target="privacidad">Política de privacidad</button>
           <button class="legal-tab" data-target="calidad">Política de calidad</button>
           <button class="legal-tab" data-target="cookies">Política de cookies</button>
         </div>
 
         <div class="legal-panels">
-          <article id="aviso-legal" class="legal-panel active">
+          <article id="aviso-legal" class="legal-panel">
             <h3>Aviso legal</h3>
             <p>LaboralClave, nombre comercial de ASESORIA PEREIRA 2002, S.L., en adelante el RESPONSABLE, pone a disposición de los usuarios el presente documento para dar cumplimiento a las obligaciones previstas en la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSICE), así como para informar sobre las condiciones de acceso y uso del sitio web.</p>
             <p>El acceso a este sitio web atribuye la condición de usuario e implica el compromiso de respetar las presentes condiciones y cualquier otra disposición legal que resulte de aplicación. El RESPONSABLE se reserva el derecho de modificar la información, contenidos, servicios o condiciones del sitio web cuando lo considere necesario, siendo suficiente su publicación en la propia web.</p>
@@ -229,7 +282,7 @@
               <div><dt>Denominación social</dt><dd>ASESORIA PEREIRA 2002, S.L.</dd></div>
               <div><dt>NIF</dt><dd>B62727300</dd></div>
               <div><dt>Domicilio social</dt><dd>Pje. Riu Llobregat, 10-12, 08917 Badalona</dd></div>
-              <div><dt>Teléfono</dt><dd>933 830 376</dd></div>
+              <div><dt>Teléfono</dt><dd>647 22 90 94</dd></div>
               <div><dt>Email</dt><dd><a href="mailto:info@laboralclave.com">info@laboralclave.com</a></dd></div>
             </dl>
 
@@ -312,58 +365,6 @@
         </div>
       </div>
     </section>
-
-    <section id="contacto" class="section contact-section">
-      <div class="wrap contact-grid">
-        <div>
-          <p class="eyebrow">Solicita una consulta</p>
-          <h2>Cuéntame brevemente qué necesitas</h2>
-          <p class="section-text">
-            Puedes contactar por correo electrónico o dejar preparada tu solicitud desde este formulario.
-          </p>
-          <div class="contact-details">
-            <a href="mailto:info@laboralclave.com"><strong>info@laboralclave.com</strong></a>
-            <span>Avenida Martí Pujol 14, 08911 Badalona</span>
-            <a href="tel:+34933830376">933 830 376</a>
-          </div>
-        </div>
-
-        <form id="consultation-form" class="contact-form">
-          <label>
-            Nombre *
-            <input type="text" name="nombre" autocomplete="name" required>
-          </label>
-          <label>
-            Email *
-            <input type="email" name="email" autocomplete="email" required>
-          </label>
-          <label>
-            Tema de la consulta *
-            <select name="tema" required>
-              <option value="">Selecciona una opción</option>
-              <option>Pensiones y jubilación</option>
-              <option>Incapacidades y Seguridad Social</option>
-              <option>Despidos y reclamaciones</option>
-              <option>Conciliación / mediación</option>
-              <option>Empresa / Inspección de Trabajo</option>
-              <option>Autónomos</option>
-              <option>Servicio doméstico</option>
-              <option>Otro</option>
-            </select>
-          </label>
-          <label>
-            Explícame brevemente tu caso *
-            <textarea name="mensaje" rows="5" required></textarea>
-          </label>
-          <label class="privacy-check">
-            <input type="checkbox" required>
-            <span>He leído y acepto la <a href="#cumplimiento" data-open-legal="privacidad">Política de privacidad</a> y consiento el tratamiento de mis datos para atender esta solicitud.</span>
-          </label>
-          <button class="btn" type="submit">Preparar solicitud</button>
-          <p id="form-message" class="form-message" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -374,7 +375,7 @@
           <span>Laboral<span>Clave</span></span>
         </a>
         <p>Asesoramiento laboral especializado para trabajadores, empresas y autónomos.</p>
-        <p><a href="mailto:info@laboralclave.com">info@laboralclave.com</a><br>Avenida Martí Pujol 14, 08911 Badalona<br>933 830 376</p>
+        <p><a href="mailto:info@laboralclave.com">info@laboralclave.com</a><br>Avenida Martí Pujol 14, 08911 Badalona<br>647 22 90 94</p>
       </div>
       <div class="footer-links">
         <a href="#servicios">Servicios</a>
