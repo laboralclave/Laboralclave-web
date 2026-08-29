@@ -194,3 +194,108 @@ textarea{resize:vertical}
 .legal-section{border-top:1px solid var(--line)}
 .legal-panels{margin-top:0}
 .legal-panel{margin-top:14px}
+
+
+/* ===== Versión 5: portada con oficina profesional de fondo ===== */
+.hero.hero-office{
+  position:relative;
+  min-height:720px;
+  padding:96px 0 84px;
+  background:
+    linear-gradient(90deg,rgba(5,24,38,.78) 0%,rgba(5,24,38,.60) 48%,rgba(5,24,38,.38) 100%),
+    url("office-background.png") center center / cover no-repeat;
+}
+.hero.hero-office::before{
+  display:none;
+}
+.hero.hero-office .hero-grid{
+  align-items:center;
+}
+.hero.hero-office .hero-copy{
+  background:rgba(7,27,42,.38);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 24px 60px rgba(0,0,0,.18);
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+  color:#fff;
+}
+.hero.hero-office .hero-copy h1{
+  color:#fff;
+  text-shadow:0 3px 20px rgba(0,0,0,.22);
+}
+.hero.hero-office .hero-copy h1 span{
+  color:#e2b35a;
+}
+.hero.hero-office .hero-copy .eyebrow{
+  color:#f0c66f;
+}
+.hero.hero-office .hero-lead{
+  color:rgba(255,255,255,.92);
+}
+.hero.hero-office .trust-line{
+  color:rgba(255,255,255,.86);
+}
+.hero.hero-office .trust-line b{
+  color:#efc46d;
+}
+.hero.hero-office .btn{
+  background:#c6922f;
+  border-color:#c6922f;
+  color:#fff;
+}
+.hero.hero-office .btn-secondary{
+  background:rgba(255,255,255,.10);
+  border-color:rgba(255,255,255,.72);
+  color:#fff;
+}
+.hero.hero-office .portrait-card{
+  background:transparent;
+}
+.hero.hero-office .portrait-frame{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 24px 55px rgba(0,0,0,.23);
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+}
+.hero.hero-office .portrait-frame img{
+  background:transparent;
+}
+.hero.hero-office .portrait-caption{
+  background:rgba(7,27,42,.66);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.hero.hero-office .portrait-caption span{
+  color:rgba(255,255,255,.75);
+}
+.hero.hero-office .hero-contact-card{
+  background:rgba(7,27,42,.58);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 22px 50px rgba(0,0,0,.20);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.hero.hero-office .hero-contact-card strong{
+  color:#efc46d;
+}
+@media (max-width:900px){
+  .hero.hero-office{
+    min-height:auto;
+    padding-top:68px;
+    background-position:58% center;
+  }
+  .hero.hero-office .hero-copy{
+    background:rgba(7,27,42,.56);
+  }
+}
+@media (max-width:620px){
+  .hero.hero-office{
+    background-position:62% center;
+  }
+  .hero.hero-office .hero-copy{
+    background:rgba(7,27,42,.62);
+  }
+}
