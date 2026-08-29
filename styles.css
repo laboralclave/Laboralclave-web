@@ -52,8 +52,9 @@ a{color:inherit}
   position:relative;overflow:hidden;
   padding:92px 0 82px;
   background:
-    radial-gradient(circle at 82% 18%,rgba(181,138,72,.17),transparent 26%),
-    linear-gradient(180deg,#fffdf8,#f6f3eb)
+    radial-gradient(circle at 82% 18%,rgba(181,138,72,.24),transparent 28%),
+    radial-gradient(circle at 18% 80%,rgba(64,102,91,.24),transparent 34%),
+    linear-gradient(135deg,#10231e 0%,#1c3931 54%,#efe8d8 54%,#f7f3e9 100%)
 }
 .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:78px;align-items:center}
 .eyebrow{
@@ -181,3 +182,12 @@ textarea{resize:vertical}
   .footer-grid{grid-template-columns:1fr}
   .legal-line{flex-direction:column}
 }
+
+.hero-copy{background:rgba(255,255,255,.96);padding:46px;border-radius:30px;box-shadow:0 28px 70px rgba(0,0,0,.18)}
+.hero .eyebrow{color:#9a7137}
+.hero .trust-line b{font-size:20px;color:var(--accent);margin-right:4px}
+.portrait-frame{aspect-ratio:auto;border-radius:18px;background:transparent;box-shadow:0 25px 65px rgba(0,0,0,.24);overflow:hidden}
+.portrait-frame img{width:100%;height:auto;max-height:560px;object-fit:contain;object-position:center;background:#e7e5df}
+.portrait-caption{left:18px;bottom:18px}
+@media(max-width:900px){.hero-copy{padding:32px}.hero{background:linear-gradient(155deg,#10231e 0%,#1c3931 35%,#f5f1e7 35%)}}
+@media(max-width:620px){.hero-copy{padding:25px 20px}.portrait-frame img{max-height:none}}
