@@ -203,7 +203,7 @@ textarea{resize:vertical}
   padding:92px 0 82px;
   background:
     linear-gradient(90deg,rgba(250,247,239,.18) 0%,rgba(250,247,239,.09) 52%,rgba(250,247,239,.05) 100%),
-    url("office-background.jpg") center center / cover no-repeat;
+    url("office-background.png") center center / cover no-repeat;
 }
 .hero.hero-v9::before{display:none!important}
 
