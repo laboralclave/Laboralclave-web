@@ -386,3 +386,69 @@ textarea{resize:vertical}
 }
 
 @media (max-width:760px){.latest-content{grid-template-columns:1fr}.video-card video{aspect-ratio:16/9}}
+
+/* v14: miniaturas enlazadas a TikTok */
+.video-thumb-link {
+  position: relative;
+  display: block;
+  flex: 0 0 150px;
+  width: 150px;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #e9e2d7;
+}
+.video-thumb {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.play-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.92);
+  color: #0b2940;
+  box-shadow: 0 6px 18px rgba(0,0,0,.22);
+  padding-left: 3px;
+}
+.tiktok-video-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 800;
+  color: #d39a24;
+  text-decoration: none;
+}
+.tiktok-video-link:hover,
+.follow-strip a:hover { text-decoration: underline; }
+.follow-strip {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.18);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: .9rem;
+}
+.follow-strip a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid rgba(211,154,36,.7);
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+}
+@media (max-width: 680px) {
+  .video-thumb-link { flex-basis: 112px; width: 112px; }
+}
