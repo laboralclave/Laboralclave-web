@@ -328,3 +328,10 @@ textarea{resize:vertical}
   .hero.hero-v9 .portrait-card{max-width:220px;margin:0 auto}
   .hero.hero-v9 .hero-contact-card{background:rgba(255,253,248,.78)}
 }
+
+/* ===== Versión 11: fondo limpio y bien encuadrado ===== */
+.hero.hero-v9{
+  background:
+    linear-gradient(90deg,rgba(250,247,239,.07) 0%,rgba(250,247,239,.025) 50%,rgba(250,247,239,.01) 100%),
+    url("office-background.png") center center / cover no-repeat !important;
+}
