@@ -483,6 +483,6 @@ textarea{resize:vertical}
 .service-final h2{color:#fff;margin:6px 0 10px}
 .service-final p{color:rgba(255,255,255,.8)}
 .service-final-inner{display:flex;justify-content:space-between;align-items:center;gap:40px}
-.service-final .btn-secondary{border-color:rgba(255,255,255,.45);color:#fff}
+.service-final .btn-secondary{background:transparent;border-color:rgba(255,255,255,.45);color:#fff}
 @media(max-width:900px){.service-hero-grid,.service-two-col{grid-template-columns:1fr}.service-final-inner{display:block}.service-final .hero-actions{margin-top:24px}}
 @media(max-width:680px){.service-hero{padding:58px 0 50px}.service-check-grid{grid-template-columns:1fr}.service-summary{padding:26px}.service-final-inner .hero-actions{display:flex;flex-direction:column;align-items:stretch}}
