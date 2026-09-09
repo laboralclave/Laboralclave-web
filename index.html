@@ -191,7 +191,7 @@
           <div class="preview-chip">LABORALCLAVE RESPONDE</div>
           <h3>Respuestas claras a dudas laborales reales</h3>
           <p class="preview-intro">Vídeos breves para entender cuestiones laborales que pueden afectar a tu día a día. <strong>Sígueme en TikTok para no perderte los próximos.</strong></p>
-          <div class="latest-content">
+          <div class="latest-content" id="tiktok-latest">
             <article class="video-card">
               <a class="video-thumb-link" href="https://www.tiktok.com/@laboralclave/video/7683511879150374166" target="_blank" rel="noopener" aria-label="Ver en TikTok el vídeo sobre las nuevas notificaciones electrónicas de la Seguridad Social">
                 <img class="video-thumb" src="seguridad-social-notificaciones.jpg" alt="Miniatura sobre las nuevas notificaciones electrónicas de la Seguridad Social">
@@ -459,5 +459,68 @@
   </div>
 
   <script src="script.js"></script>
-</body>
+<script>
+(async function () {
+  const container = document.getElementById("tiktok-latest");
+  if (!container) return;
+
+  try {
+    const response = await fetch("/api/tiktok/videos", {
+      cache: "no-store"
+    });
+
+    if (!response.ok) return;
+
+    const data = await response.json();
+    const videos = data.videos;
+
+    if (!Array.isArray(videos) || videos.length < 2) return;
+
+    const escapeHtml = (text = "") =>
+      String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+    const cards = videos.slice(0, 2).map((video) => {
+      const description =
+        video.title ||
+        video.video_description ||
+        "Nuevo vídeo de LaboralClave en TikTok";
+
+      return `
+        <article class="video-card">
+          <a class="video-thumb-link"
+             href="${escapeHtml(video.share_url)}"
+             target="_blank"
+             rel="noopener"
+             aria-label="Ver este vídeo de LaboralClave en TikTok">
+            <img class="video-thumb"
+                 src="${escapeHtml(video.cover_image_url)}"
+                 alt="${escapeHtml(description)}"
+                 loading="lazy">
+            <span class="play-badge" aria-hidden="true">▶</span>
+          </a>
+
+          <div class="video-card-copy">
+            <span class="content-tag">TIKTOK · ACTUALIDAD LABORAL</span>
+            <h4>${escapeHtml(description)}</h4>
+            <p>${escapeHtml(video.video_description || description)}</p>
+            <a class="tiktok-video-link"
+               href="${escapeHtml(video.share_url)}"
+               target="_blank"
+               rel="noopener">Ver vídeo en TikTok ↗</a>
+          </div>
+        </article>
+      `;
+    }).join("");
+
+    container.innerHTML = cards;
+  } catch (error) {
+    console.error("No se pudieron cargar los últimos vídeos de TikTok.");
+  }
+})();
+</script></body>
 </html>
