@@ -35,8 +35,8 @@ export async function onRequestGet(context) {
     "https://www.laboralclave.com/tiktok/callback/";
 
   const body = new URLSearchParams({
-    client_key: env.TIKTOK_CLIENT_KEY,
-    client_secret: env.TIKTOK_CLIENT_SECRET,
+    client_key: env.TIKTOK_SANDBOX_CLIENT_KEY,
+    client_secret: env.TIKTOK_SANDBOX_CLIENT_SECRET,
     code: code,
     grant_type: "authorization_code",
     redirect_uri: redirectUri
