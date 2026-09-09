@@ -1,7 +1,7 @@
 export async function onRequestGet(context) {
   const { env } = context;
 
-  const clientKey = env.TIKTOK_CLIENT_KEY;
+  const clientKey = env.TIKTOK_SANDBOX_CLIENT_KEY;
   const redirectUri = "https://www.laboralclave.com/tiktok/callback/";
 
   if (!clientKey) {
