@@ -485,10 +485,16 @@
         .replaceAll("'", "&#039;");
 
     const cards = videos.slice(0, 2).map((video) => {
-      const description =
-        video.title ||
-        video.video_description ||
-        "Nuevo vídeo de LaboralClave en TikTok";
+      const rawDescription =
+  video.title ||
+  video.video_description ||
+  "";
+
+const description = rawDescription
+  .replace(/#[^\s#@]+/g, "")
+  .replace(/@[^\s#@]+/g, "")
+  .replace(/\s+/g, " ")
+  .trim();
 
       return `
         <article class="video-card">
@@ -507,7 +513,7 @@
           <div class="video-card-copy">
             <span class="content-tag">TIKTOK · ACTUALIDAD LABORAL</span>
             <h4>${escapeHtml(description)}</h4>
-            <p>${escapeHtml(video.video_description || description)}</p>
+           ${description ? `<p>${escapeHtml(description)}</p>` : ""}
             <a class="tiktok-video-link"
                href="${escapeHtml(video.share_url)}"
                target="_blank"
