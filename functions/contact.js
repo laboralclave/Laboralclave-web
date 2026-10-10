@@ -22,6 +22,22 @@ export async function onRequestPost(context) {
       );
     }
 
+    if (!context.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY no está configurada.");
+      return new Response(
+        JSON.stringify({
+          ok: false,
+          error: "El servidor no tiene configurada la clave de correo."
+        }),
+        {
+          status: 500,
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+    }
+
     const resendResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -44,14 +60,17 @@ ${mensaje}`
       })
     });
 
-    const result = await resendResponse.json();
+    const responseText = await resendResponse.text();
+
+    console.log("RESPUESTA RESEND:", resendResponse.status, responseText);
 
     if (!resendResponse.ok) {
       return new Response(
         JSON.stringify({
           ok: false,
-          error: "No se ha podido enviar la consulta.",
-          detail: result
+          error: "Resend ha rechazado el envío.",
+          resend_status: resendResponse.status,
+          resend_response: responseText
         }),
         {
           status: 500,
@@ -64,7 +83,8 @@ ${mensaje}`
 
     return new Response(
       JSON.stringify({
-        ok: true
+        ok: true,
+        message: "Consulta enviada correctamente."
       }),
       {
         status: 200,
@@ -75,10 +95,13 @@ ${mensaje}`
     );
 
   } catch (error) {
+    console.error("ERROR CONTACT:", error);
+
     return new Response(
       JSON.stringify({
         ok: false,
-        error: "Se ha producido un error al procesar la solicitud."
+        error: "Se ha producido un error al procesar la solicitud.",
+        detail: error instanceof Error ? error.message : String(error)
       }),
       {
         status: 500,
