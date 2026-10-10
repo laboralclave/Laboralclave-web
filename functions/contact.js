@@ -85,7 +85,7 @@ ${mensaje}`
         headers: {
           "Content-Type": "application/json"
         }
-      }
+// Configuración de envío mediante Resend      }
     );
   }
 }
