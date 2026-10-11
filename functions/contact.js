@@ -22,55 +22,38 @@ export async function onRequestPost(context) {
       );
     }
 
-    if (!context.env.RESEND_API_KEY) {
-      console.error("RESEND_API_KEY no está configurada.");
+    const formSubmitResponse = await fetch(
+      "https://formsubmit.co/ajax/info@laboralclave.com",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          nombre: nombre,
+          email: email,
+          tema: tema,
+          mensaje: mensaje,
+
+          _subject: `Nueva consulta web: ${tema}`,
+
+          _replyto: email,
+
+          _url: "https://www.laboralclave.com/contact"
+        })
+      }
+    );
+
+    const result = await formSubmitResponse.json();
+
+    if (!formSubmitResponse.ok) {
       return new Response(
         JSON.stringify({
           ok: false,
-          error: "El servidor no tiene configurada la clave de correo."
-        }),
-        {
-          status: 500,
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      );
-    }
-
-    const resendResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${context.env.RESEND_API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        from: "LaboralClave <info@laboralclave.com>",
-        to: ["info@laboralclave.com"],
-        reply_to: email,
-        subject: `Nueva consulta web: ${tema}`,
-        text: `Nueva consulta recibida desde LaboralClave
-
-Nombre: ${nombre}
-Email: ${email}
-Tema: ${tema}
-
-Mensaje:
-${mensaje}`
-      })
-    });
-
-    const responseText = await resendResponse.text();
-
-    console.log("RESPUESTA RESEND:", resendResponse.status, responseText);
-
-    if (!resendResponse.ok) {
-      return new Response(
-        JSON.stringify({
-          ok: false,
-          error: "Resend ha rechazado el envío.",
-          resend_status: resendResponse.status,
-          resend_response: responseText
+          error: "FormSubmit ha rechazado el envío.",
+          formsubmit_status: formSubmitResponse.status,
+          formsubmit_response: result
         }),
         {
           status: 500,
@@ -95,13 +78,11 @@ ${mensaje}`
     );
 
   } catch (error) {
-    console.error("ERROR CONTACT:", error);
-
     return new Response(
       JSON.stringify({
         ok: false,
         error: "Se ha producido un error al procesar la solicitud.",
-        detail: error instanceof Error ? error.message : String(error)
+        detail: String(error)
       }),
       {
         status: 500,
