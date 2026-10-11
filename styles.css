@@ -277,8 +277,18 @@ textarea{resize:vertical}
   background:transparent;
   box-shadow:none;
 }
-.hero.hero-v9 .portrait-caption strong{font-size:15px}
-.hero.hero-v9 .portrait-caption span{font-size:11px;color:#65747c}
+.hero.hero-v9 .portrait-caption strong{
+  font-size:16px;
+  color:#ffffff;
+  text-shadow:0 2px 6px rgba(0,0,0,.55);
+}
+
+.hero.hero-v9 .portrait-caption span{
+  font-size:12px;
+  color:#ffffff;
+  font-weight:700;
+  text-shadow:0 2px 6px rgba(0,0,0,.55);
+}
 
 .hero.hero-v9 .hero-contact-card{
   display:flex;
@@ -348,7 +358,7 @@ textarea{resize:vertical}
   padding:10px 20px 12px;
 }
 .hero.hero-v9 .professional-card .professional-item{
-  padding:13px 0;
+  padding:9px 0;
   border-bottom:1px solid rgba(12,36,56,.13);
 }
 .hero.hero-v9 .professional-card .professional-item strong{
