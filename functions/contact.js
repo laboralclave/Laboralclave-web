@@ -22,8 +22,8 @@ export async function onRequestPost(context) {
       );
     }
 
-    const formSubmitResponse = await fetch(
-      "https://formsubmit.co/ajax/info@laboralclave.com",
+    const web3formsResponse = await fetch(
+      "https://api.web3forms.com/submit",
       {
         method: "POST",
         headers: {
@@ -31,29 +31,33 @@ export async function onRequestPost(context) {
           "Accept": "application/json"
         },
         body: JSON.stringify({
-          nombre: nombre,
+          access_key: "c2005792-1ca8-4571-9c80-fa22cc51a9e0",
+          subject: `Nueva consulta web: ${tema}`,
+          from_name: "LaboralClave",
+          name: nombre,
           email: email,
-          tema: tema,
-          mensaje: mensaje,
-
-          _subject: `Nueva consulta web: ${tema}`,
-
-          _replyto: email,
-
-          _url: "https://www.laboralclave.com/contact"
+          replyto: email,
+          message:
+            `Nueva consulta recibida desde LaboralClave\n\n` +
+            `Nombre: ${nombre}\n` +
+            `Email: ${email}\n` +
+            `Tema: ${tema}\n\n` +
+            `Mensaje:\n${mensaje}`
         })
       }
     );
 
-    const result = await formSubmitResponse.json();
+    const result = await web3formsResponse.json();
 
-    if (!formSubmitResponse.ok) {
+    console.log("Respuesta Web3Forms:", result);
+
+    if (!web3formsResponse.ok || !result.success) {
       return new Response(
         JSON.stringify({
           ok: false,
-          error: "FormSubmit ha rechazado el envío.",
-          formsubmit_status: formSubmitResponse.status,
-          formsubmit_response: result
+          error: "Web3Forms ha rechazado el envío.",
+          web3forms_status: web3formsResponse.status,
+          web3forms_response: result
         }),
         {
           status: 500,
@@ -66,8 +70,7 @@ export async function onRequestPost(context) {
 
     return new Response(
       JSON.stringify({
-        ok: true,
-        message: "Consulta enviada correctamente."
+        ok: true
       }),
       {
         status: 200,
@@ -78,11 +81,12 @@ export async function onRequestPost(context) {
     );
 
   } catch (error) {
+    console.error("Error en /contact:", error);
+
     return new Response(
       JSON.stringify({
         ok: false,
-        error: "Se ha producido un error al procesar la solicitud.",
-        detail: String(error)
+        error: "Se ha producido un error al procesar la solicitud."
       }),
       {
         status: 500,
